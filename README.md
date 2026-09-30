@@ -1,6 +1,6 @@
 # RoSE — Robotic Spatiotemporal Editing
 
-Academic project website for **RoSE: Robotic Spatiotemporal Editing**. The site is intentionally built with plain HTML, CSS, and JavaScript so it can run locally, on GitHub Pages, or behind a future custom domain without a build step.
+Academic project website for **Robotic Spatiotemporal Editing: A Unified Interface for Controllable Action Generation via Masked Action Reconstruction**. The site is intentionally built with plain HTML, CSS, and JavaScript so it can run locally, on GitHub Pages, or behind a future custom domain without a build step.
 
 ## Project structure
 
