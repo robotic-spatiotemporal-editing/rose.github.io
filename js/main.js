@@ -66,5 +66,54 @@ document.querySelectorAll('[data-unavailable]').forEach((link) => {
   link.addEventListener('click', (event) => event.preventDefault());
 });
 
+document.querySelectorAll('[data-demo-group]').forEach((group) => {
+  const rail = group.querySelector('[data-demo-rail]');
+  const previous = group.querySelector('[data-demo-previous]');
+  const next = group.querySelector('[data-demo-next]');
+  const status = group.querySelector('[data-demo-status]');
+  const cards = rail ? [...rail.querySelectorAll('.demo-card')] : [];
+  let currentIndex = 0;
+  let scrollFrame;
+
+  if (!rail || !cards.length) return;
+
+  const updateControls = () => {
+    if (status) status.textContent = `${String(currentIndex + 1).padStart(2, '0')} / ${String(cards.length).padStart(2, '0')}`;
+    if (previous) previous.disabled = currentIndex === 0;
+    if (next) next.disabled = currentIndex === cards.length - 1;
+  };
+
+  const goToDemo = (index) => {
+    currentIndex = Math.max(0, Math.min(index, cards.length - 1));
+    rail.scrollTo({ left: cards[currentIndex].offsetLeft - rail.offsetLeft, behavior: 'smooth' });
+    updateControls();
+  };
+
+  previous?.addEventListener('click', () => goToDemo(currentIndex - 1));
+  next?.addEventListener('click', () => goToDemo(currentIndex + 1));
+
+  rail.addEventListener('scroll', () => {
+    window.cancelAnimationFrame(scrollFrame);
+    scrollFrame = window.requestAnimationFrame(() => {
+      currentIndex = cards.reduce((closestIndex, card, index) => {
+        const currentDistance = Math.abs((card.offsetLeft - rail.offsetLeft) - rail.scrollLeft);
+        const closestDistance = Math.abs((cards[closestIndex].offsetLeft - rail.offsetLeft) - rail.scrollLeft);
+        return currentDistance < closestDistance ? index : closestIndex;
+      }, 0);
+      updateControls();
+    });
+  }, { passive: true });
+
+  updateControls();
+});
+
+document.querySelectorAll('.demo-media video').forEach((video) => {
+  video.addEventListener('play', () => {
+    document.querySelectorAll('.demo-media video').forEach((otherVideo) => {
+      if (otherVideo !== video) otherVideo.pause();
+    });
+  });
+});
+
 const year = document.querySelector('[data-current-year]');
 if (year) year.textContent = new Date().getFullYear();

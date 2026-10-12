@@ -1,0 +1,106 @@
+/* Match RoSE's Abstract blue; keep recorded videos and 3D materials unchanged. */
+:root { --rose-blue: #3155ff; }
+
+/* Replace the original green UI text, including dynamically populated labels. */
+#loading,
+#method-dialog,
+#playback span,
+#watch-video,
+.algorithm-frame,
+.algorithm-frame small,
+.algorithm-legend,
+.algorithm-legend b,
+.algorithm-panel,
+.algorithm-source,
+.algorithm-status,
+.algorithm-summary,
+.card-copy small,
+.card-copy strong,
+.diagram-caption,
+.diagram-title,
+.environment-switch button,
+.environment-switch button[aria-pressed=true],
+.eyebrow,
+.fixed-note,
+.library h3,
+.library header p,
+.library-footer a,
+.main-heading p,
+.method-caveat,
+.method-link,
+.method-source,
+.method-source a,
+.method-steps li,
+.method-steps strong,
+.method-types,
+.method-types b,
+.mode-tag,
+.presentation-switch button[aria-pressed=true],
+.ref-badge small,
+.reference-instruction,
+.scene-bottom,
+.section-label>span,
+.task-switch button,
+.task-switch button[aria-pressed=true],
+.video-footer,
+.video-heading>div>span,
+.view-help,
+:root,
+body[data-layout="compact"] #algorithm-panel .algorithm-progress,
+body[data-layout="compact"] #video-note,
+body[data-layout="compact"] .algorithm-ref-type,
+body[data-layout="compact"] .algorithm-source,
+body[data-layout="compact"] .card-copy small,
+body[data-layout="compact"] .interaction-hint,
+body[data-layout="compact"] .library h3,
+body[data-layout="compact"] .library header p,
+body[data-layout="compact"] .main-heading #video-title,
+body[data-layout="compact"] .main-heading .eyebrow,
+body[data-layout="compact"] .method-link,
+body[data-layout="compact"] .prediction-state,
+body[data-layout="compact"] .reference-instruction,
+body[data-layout="compact"] .video-heading>div>span,
+body[data-layout="compact"] .view-help,
+button {
+  color: var(--rose-blue) !important;
+}
+
+.algorithm-axis-label,
+.algorithm-axis-ticks,
+body[data-layout="compact"] #algorithm-panel .algorithm-axis-label {
+  fill: var(--rose-blue) !important;
+}
+
+/* Use the same blue for all controls, with white labels for readable contrast. */
+button,
+body[data-layout="compact"] button {
+  background: var(--rose-blue) !important;
+  border-color: var(--rose-blue) !important;
+  color: #fff !important;
+}
+body[data-layout="compact"] button *,
+button > *,
+body[data-layout="compact"] .reference-card .card-copy strong,
+body[data-layout="compact"] .reference-card .card-copy small {
+  color: #fff !important;
+}
+button:hover { filter: brightness(.94); }
+button[aria-pressed="true"] {
+  box-shadow: inset 0 -3px 0 #fff !important;
+  outline: 2px solid var(--rose-blue);
+  outline-offset: 2px;
+}
+button:focus-visible,
+body[data-layout="compact"] button:focus-visible {
+  outline-color: var(--rose-blue) !important;
+}
+.environment-switch,
+.task-switch,
+.presentation-switch,
+.view-switch,
+.ref-type-switch,
+.type-switch {
+  background: #eef1ff !important;
+  border-color: #dbe3ff !important;
+}
+#playback input { accent-color: var(--rose-blue); }
