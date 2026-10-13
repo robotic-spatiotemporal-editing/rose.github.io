@@ -196,7 +196,7 @@ h3 { margin: 32px 0 10px; font-size: 1.12rem; line-height: 1.12; }
 .experiment-result-panel { overflow: hidden; border: 1px solid var(--ink); background: #fff; }
 .experiment-figure-viewport { position: relative; overflow: hidden; background: #fff; }
 .experiment-figure-viewport img { position: absolute; top: 0; left: 0; display: block; width: 100%; height: auto; }
-.experiment-figure-viewport.table-crop { aspect-ratio: 1710 / 560; }
+.experiment-figure-viewport.table-image img { position: static; }
 .experiment-figure-viewport.figure-crop { aspect-ratio: 1710 / 598; }
 .experiment-figure-viewport.figure-crop img { transform: translateY(-48.35%); }
 .experiment-result-panel .experiment-caption { border-top: 1px solid var(--ink); }
