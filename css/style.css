@@ -164,9 +164,11 @@ h3 { margin: 32px 0 10px; font-size: 1.12rem; line-height: 1.12; }
 .method-figure-panel figcaption p { margin: 0; }
 .method-figure-panel figcaption p + p { margin-top: 16px; }
 .method-figure-panel figcaption p:first-child > strong { color: var(--signal); }
-.method-equations { display: grid; gap: 18px; max-width: 100%; margin: 24px 0 0; padding: 22px 18px; overflow-x: auto; border: 1px solid #dbe3ff; background: #fff; color: var(--ink); }
-.method-equations math { width: max-content; min-width: 100%; margin: 0; font-size: 1.08rem; line-height: 1.6; }
-.method-figure-panel figcaption .equation-note { margin-top: 14px; font-size: .95rem; line-height: 1.65; }
+.method-prose-heading { margin: 26px 0 12px; color: var(--ink); font-size: 1.05rem; font-weight: 700; }
+.paper-equation { max-width: 100%; margin: 18px 0; overflow-x: auto; color: var(--ink); }
+.paper-equation math { width: max-content; min-width: 100%; margin: 0; font-size: 1.05rem; }
+.inline-equation { display: inline-block; max-width: 100%; overflow-x: auto; vertical-align: middle; }
+.method-figure-panel math[display="inline"] { font-size: 1em; }
 .method-figure-crop { position: relative; overflow: hidden; width: 100%; margin: 20px auto; background: #fff; }
 .method-figure-crop img { position: absolute; top: 0; left: 0; display: block; max-width: none; height: auto; }
 .method-figure-crop-left { width: min(80%, 768px); aspect-ratio: 4930 / 3219; }
@@ -249,10 +251,10 @@ h3 { margin: 32px 0 10px; font-size: 1.12rem; line-height: 1.12; }
 #demos { overflow: hidden; background: var(--paper-bright); }
 #demos::after { content: "ROLLOUTS"; position: absolute; right: -18px; bottom: -20px; z-index: 0; color: rgba(11,11,11,.035); font-size: clamp(7rem, 18vw, 16rem); font-weight: 900; letter-spacing: -.1em; line-height: .7; pointer-events: none; }
 #demos .shell { position: relative; z-index: 1; }
-.interactive-demo { overflow: hidden; border: 0; background: #f4f6f2; box-shadow: none; }
+.interactive-demo { overflow: hidden; border: 0; background: var(--paper-bright); box-shadow: none; }
 .hero-interactive-demo { grid-column: 1; width: 100%; margin: 36px 0 0; text-align: left; }
-.interactive-demo-frame { height: clamp(680px, 68vw, 840px); background: #f4f6f2; }
-.interactive-demo-frame iframe { display: block; width: 100%; height: 100%; border: 0; background: #f4f6f2; }
+.interactive-demo-frame { height: clamp(680px, 68vw, 840px); background: var(--paper-bright); }
+.interactive-demo-frame iframe { display: block; width: 100%; height: 100%; border: 0; background: var(--paper-bright); }
 .demo-evidence-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 24px; margin: 0 0 64px; }
 .demo-evidence-figure { margin: 0; overflow: hidden; border: 1px solid var(--ink); background: #fff; box-shadow: 10px 10px 0 var(--signal); }
 .demo-evidence-figure:nth-child(2) { box-shadow: 10px 10px 0 var(--accent); }
@@ -352,7 +354,6 @@ code { font-family: ui-monospace, SFMono-Regular, Menlo, monospace; font-size: .
   .hero-subtitle-line { white-space: normal; }
   .authors { gap: 8px 17px; }
   .affiliations { gap: 6px 18px; font-size: .9rem; }
-  .method-equations { padding: 18px 12px; }
   .hero-actions { display: grid; grid-template-columns: 1fr 1fr; width: 100%; }
   .action-button { margin: 0; }
   .sequence-strip { grid-template-columns: repeat(5, minmax(112px, 1fr)); overflow-x: auto; }

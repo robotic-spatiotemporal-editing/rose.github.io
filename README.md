@@ -14,19 +14,46 @@ Academic project website for **Robotic Spatiotemporal Editing: A Unified Interfa
 │   ├── videos/
 │   └── results/
 ├── paper/
+├── mam-demo.html
+├── .nojekyll
 ├── README.md
 └── .gitignore
 ```
 
 ## Preview locally
 
-From the repository root, run:
+On macOS, double-click `preview.command` in this folder. It opens the website in
+your browser and starts a local server if one is not already running. Keep the
+Terminal window open while previewing. If port 8000 is occupied by another site,
+the launcher selects another available port and prints the address.
+
+Alternatively, from this folder run:
 
 ```bash
 python3 -m http.server 8000
 ```
 
 Then open [http://localhost:8000](http://localhost:8000). Stop the server with `Ctrl+C`.
+
+Use this HTTP address rather than double-clicking `index.html`: the interactive
+demo fetches its model and reference data as needed, which requires HTTP locally.
+On GitHub Pages the site is served over HTTPS, so visitors open the normal page;
+they do not run a local server or use `preview.command`. The interactive demo is
+embedded in the homepage and loads automatically as it comes into view.
+
+## Optimized media and interactive demo
+
+- The page uses WebP figures in `assets/images/`; original PNGs are retained.
+- `mam-demo.html` loads its styles from `css/mam-demo-base.css` and
+  `css/mam-demo-theme.css`, and its scripts from `js/mam/`.
+- `assets/interactive/` contains compressed robot data and extracted reference
+  videos/posters. These are required site assets: publish them with the page.
+- Videos load when selected; the additional simulation model loads when first
+  requested. The 3D view pauses rendering while outside the visible page.
+- `tools/optimize_site_assets.py` performs the mechanical extraction from the
+  original embedded HTML and generates WebP copies (Python with Pillow needed).
+  On subsequent runs it preserves the extracted scripts and regenerates WebP
+  copies from PNGs. No build step is needed to preview or deploy the website.
 
 ## Update the content
 
@@ -54,9 +81,15 @@ Avoid repository-specific absolute URLs. Relative paths keep the site portable b
 2. Open the repository on GitHub and go to **Settings → Pages**.
 3. Under **Build and deployment**, choose **Deploy from a branch**.
 4. Select the `main` branch and the `/(root)` folder, then save.
-5. GitHub will publish the site at `https://yuchiao0222.github.io/RoSE_website/` after the first deployment completes.
+5. For the originally planned `yuchiao0222/RoSE_website` repository, the
+   expected URL is `https://yuchiao0222.github.io/RoSE_website/`. If publishing
+   from a different repository, use the Pages URL shown in its settings.
 
-No code changes are required for the GitHub Pages subpath because all local resources use relative paths.
+Publish `mam-demo.html`, `css/`, `js/`, `assets/interactive/`, and all other
+assets along with `index.html`. The `.nojekyll` file tells GitHub Pages to serve
+the plain static files without processing them through Jekyll. No code changes
+are required for the GitHub Pages subpath because all local resources use
+relative paths.
 
 ## Add a custom domain later
 

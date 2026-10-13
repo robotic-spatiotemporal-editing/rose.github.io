@@ -3,6 +3,25 @@ const nav = document.querySelector('[data-nav]');
 const navToggle = document.querySelector('[data-nav-toggle]');
 const navLinks = [...document.querySelectorAll('.site-nav a')];
 
+// Suspend the embedded WebGL view when readers move to the paper sections.
+const interactiveFrame = document.querySelector('.hero-interactive-demo iframe');
+let demoIsVisible = true;
+const updateDemoVisibility = () => interactiveFrame?.contentWindow?.postMessage(
+  { type: 'rose-demo-visibility', visible: demoIsVisible && !document.hidden },
+  window.location.origin === 'null' ? '*' : window.location.origin
+);
+if (interactiveFrame && 'IntersectionObserver' in window) {
+  new IntersectionObserver(([entry]) => {
+    demoIsVisible = entry.isIntersecting;
+    updateDemoVisibility();
+  }).observe(interactiveFrame);
+  interactiveFrame.addEventListener('load', updateDemoVisibility);
+  document.addEventListener('visibilitychange', updateDemoVisibility);
+  window.addEventListener('message', (event) => {
+    if (event.source === interactiveFrame.contentWindow && event.origin === window.location.origin && event.data?.type === 'rose-demo-ready') updateDemoVisibility();
+  });
+}
+
 const updateHeader = () => {
   header?.classList.toggle('is-scrolled', window.scrollY > 18);
 };
