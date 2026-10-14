@@ -16,6 +16,7 @@ body[data-layout="compact"] :is(.main-heading h1, .video-heading, .scene-label h
 body[data-layout="compact"] :is(.main-heading #video-title, .main-heading .eyebrow, .interaction-hint, .card-copy small, .library header p, .algorithm-source, .algorithm-summary, .algorithm-status, .algorithm-legend, .algorithm-legend b, .scene-bottom, .video-footer, .view-help) { color: var(--rose-muted); }
 body[data-layout="compact"] :is(.algorithm-panel, .video-frame, #viewport) { color: var(--rose-ink); background: #fff; border-color: var(--rose-line); }
 body[data-layout="compact"] .algorithm-ref-type { color: var(--rose-blue); background: #eef1ff; border-color: #dbe3ff; }
+body[data-layout="compact"] #algorithm-panel .prediction-state { color: var(--algorithm-purple); }
 body[data-layout="compact"] #algorithm-panel .algorithm-progress { color: var(--rose-blue); }
 body[data-layout="compact"] #algorithm-panel .algorithm-axis-label { fill: var(--rose-muted); }
 body[data-layout="compact"] .reference-type-badge { background: #fff0df; border-color: #e8a45f; color: #8b4208; }
