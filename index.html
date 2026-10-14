@@ -7,7 +7,7 @@
     <meta name="author" content="Yanbang Li, Bu He, Yi Tian, Yu-Chiao Huang, Chenyu Zhang, Ruoqu Chen, Yuanzhe Liu, Yuxiang Gao, Mengdi Xu">
     <meta name="theme-color" content="#eeede5">
     <title>Robotic Spatiotemporal Editing: A Unified Interface for Controllable Action Generation via Masked Action Reconstruction</title>
-    <link rel="stylesheet" href="./css/style.css?v=20261014">
+    <link rel="stylesheet" href="./css/style.css?v=20261014-2">
     <script src="./js/main.js" defer></script>
   </head>
   <body>
@@ -96,7 +96,7 @@
 
           <div class="interactive-demo hero-interactive-demo" role="region" aria-label="Interactive robot demonstration">
             <div class="interactive-demo-frame">
-              <iframe src="./mam-demo.html?v=20261014" title="Interactive MAM reference-conditioned robot rollout demo" loading="lazy" allow="fullscreen" allowfullscreen></iframe>
+              <iframe src="./mam-demo.html?v=20261014-2" title="Interactive MAM reference-conditioned robot rollout demo" loading="lazy" allow="fullscreen" allowfullscreen></iframe>
             </div>
           </div>
         </div>
@@ -152,6 +152,7 @@
           </div>
           <div class="method-figure-sequence" aria-label="Figure 2: Inpainting Policy">
             <figure class="overview-figure method-figure-panel">
+              <span class="method-figure-index" aria-hidden="true">1</span>
               <div class="method-figure-crop method-figure-crop-left">
                 <img src="./assets/images/overview-training.webp" width="2800" height="1081" alt="Progress-guided MAP window and action-inpainting base model" loading="lazy" decoding="async">
               </div>
@@ -161,6 +162,7 @@
               </figcaption>
             </figure>
             <figure class="overview-figure method-figure-panel">
+              <span class="method-figure-index" aria-hidden="true">2</span>
               <div class="method-figure-crop method-figure-crop-training">
                 <img src="./assets/images/overview-training.webp" width="2800" height="1081" alt="Multi-modal joint training over heterogeneous masked action references" loading="lazy" decoding="async">
               </div>
@@ -170,6 +172,7 @@
               </figcaption>
             </figure>
             <figure class="overview-figure method-figure-panel">
+              <span class="method-figure-index" aria-hidden="true">3</span>
               <div class="method-figure-crop method-figure-crop-repaint">
                 <img src="./assets/images/overview-training.webp" width="2800" height="1081" alt="RePaint denoising strategy for action inpainting" loading="lazy" decoding="async">
               </div>
@@ -196,8 +199,20 @@
               <div class="experiment-details">
                 <div class="experiment-result-grid">
                   <section class="experiment-result-panel" aria-labelledby="joint-training-table-caption">
-                    <div class="experiment-figure-viewport table-image">
-                      <img src="./assets/images/experiment-joint-training-table.png" width="2168" height="725" alt="Table comparing success rate and control error across multi-task LIBERO-10 and single-task ManiSkill benchmarks" loading="lazy" decoding="async">
+                    <div class="experiment-table-wrap">
+                      <table class="benchmark-table" aria-label="Success rate and control error on LIBERO-10 and ManiSkill">
+                        <thead>
+                          <tr><th scope="col" rowspan="2">Method</th><th scope="colgroup" colspan="2">Multi-task<br>(LIBERO-10)</th><th scope="colgroup" colspan="5">Single-task<br>(ManiSkill)</th></tr>
+                          <tr><th scope="col">Avg. SR<br>(%) ↑</th><th scope="col">CE(all) ↓</th><th scope="col">Lift Peg<br>SR (%) ↑</th><th scope="col">Pick Cube<br>SR (%) ↑</th><th scope="col">Poke Cube<br>SR (%) ↑</th><th scope="col">Avg. SR<br>(%) ↑</th><th scope="col">CE(all) ↓</th></tr>
+                        </thead>
+                        <tbody>
+                          <tr><th scope="row">DP</th><td>60.00</td><td>—</td><td>86.33</td><td>69.33</td><td>69.67</td><td>75.11</td><td>—</td></tr>
+                          <tr><th scope="row">DiT Policy</th><td>59.67</td><td>—</td><td>94.67</td><td>87.33</td><td><strong>93.00</strong></td><td>91.67</td><td>—</td></tr>
+                          <tr><th scope="row">STC</th><td>50.67</td><td>0.060</td><td>72.67</td><td>65.67</td><td>91.67</td><td>76.67</td><td>0.041</td></tr>
+                          <tr><th scope="row">IP</th><td><strong>64.67</strong></td><td>0.045</td><td><strong>100.00</strong></td><td><strong>90.33</strong></td><td>87.67</td><td><strong>92.67</strong></td><td>0.023</td></tr>
+                          <tr><th scope="row">IP-RePaint</th><td>51.33</td><td><strong>0.026</strong></td><td>95.80</td><td>82.13</td><td>62.20</td><td>80.04</td><td><strong>0.014</strong></td></tr>
+                        </tbody>
+                      </table>
                     </div>
                     <div class="experiment-caption">
                       <p id="joint-training-table-caption"><strong>Table 1: Unified control via joint training.</strong> Each policy checkpoint is evaluated across reference types using the average top-three picks of success rate and control error (CE). ManiSkill uses a separate policy for each task, whereas <strong>LIBERO-10</strong> uses a shared multitask policy.</p>
@@ -248,15 +263,10 @@
                 <h3>CONTROL WITH REAL-WORLD REFERENCES</h3>
               </div>
               <div class="experiment-details experiment-details-panel">
-                <div class="experiment-real-world-split" aria-label="Real-world reference experiments split into panels A and B">
+                <div class="experiment-real-world-split" aria-label="Real-world reference experiment panel A">
                   <figure class="experiment-real-world-panel">
                     <div class="experiment-real-world-crop experiment-real-world-crop-a">
                       <img src="./assets/images/experiment-real-world.webp" width="2800" height="1328" alt="Panel A: cup arrangement and liquid-pouring rollouts with progress-aligned control references" loading="lazy" decoding="async">
-                    </div>
-                  </figure>
-                  <figure class="experiment-real-world-panel">
-                    <div class="experiment-real-world-crop experiment-real-world-crop-b">
-                      <img src="./assets/images/experiment-real-world.webp" width="2800" height="1328" alt="Panel B: real-world cup arrangement and pouring-liquid evaluations with success-rate comparisons" loading="lazy" decoding="async">
                     </div>
                   </figure>
                 </div>

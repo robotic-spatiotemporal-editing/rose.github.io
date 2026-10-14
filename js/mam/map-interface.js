@@ -32,7 +32,9 @@
       predictionLabel.textContent=p>0?'Inpainting':'Inpainting';
       if(studio){
         source.textContent='Illustrative inpainting · Recorded replay, not live inference.';
-        query('.algorithm-known').parentElement.innerHTML='<i class="algorithm-known"></i>Inpainting';
+        const inpaintingLegend=query('.algorithm-known').parentElement;
+        inpaintingLegend.classList.add('inpainting-label');
+        inpaintingLegend.innerHTML='<i class="algorithm-known algorithm-inpainting-swatch"></i>Inpainting';
         query('.algorithm-unknown').parentElement.innerHTML='<i class="algorithm-unknown"></i>Mask';
         timeline.setAttribute('aria-label','Inpainted actions up to current progress; future actions remain gray masks');
       }
