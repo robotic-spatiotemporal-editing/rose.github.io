@@ -24,8 +24,6 @@ body[data-layout="compact"] .reference-card .card-number,
 body[data-layout="compact"] .ref-badge > span { background: #f28c28; color: #2c1708; }
 body[data-layout="compact"] .reference-card[aria-pressed="false"] .card-number { background: #ffe2c2; color: #8b4208; }
 body[data-layout="compact"] :is(#video-number, #demonstration-label) { color: var(--rose-ink); }
-body[data-layout="compact"] .algorithm-legend .inpainting-label { color: var(--algorithm-purple); }
-body[data-layout="compact"] .algorithm-legend .algorithm-inpainting-swatch { width: 0; height: 0; border: 0; border-left: 5px solid transparent; border-right: 5px solid transparent; border-bottom: 8px solid var(--algorithm-purple); border-radius: 0; background: none; }
 
 /* Camera and playback controls use a quiet outline; blue denotes selection. */
 body[data-layout="compact"] button { color: var(--rose-ink); background: #fff; border: 1px solid var(--rose-line); transition: color .15s, background-color .15s, border-color .15s; }
