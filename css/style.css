@@ -162,13 +162,7 @@ h3 { margin: 32px 0 10px; font-size: 1.12rem; line-height: 1.12; }
 .method-figure-sequence { display: grid; gap: 32px; margin-top: 38px; }
 .method-figure-panel { border: 1px solid var(--ink); box-shadow: none; }
 .method-figure-panel figcaption p { margin: 0; }
-.method-figure-panel figcaption p + p { margin-top: 16px; }
 .method-figure-panel figcaption p:first-child > strong { color: var(--signal); }
-.method-prose-heading { margin: 26px 0 12px; color: var(--ink); font-size: 1.05rem; font-weight: 700; }
-.paper-equation { max-width: 100%; margin: 18px 0; overflow-x: auto; color: var(--ink); }
-.paper-equation math { width: max-content; min-width: 100%; margin: 0; font-size: 1.05rem; }
-.inline-equation { display: inline-block; max-width: 100%; overflow-x: auto; vertical-align: middle; }
-.method-figure-panel math[display="inline"] { font-size: 1em; }
 .method-figure-crop { position: relative; overflow: hidden; width: 100%; margin: 20px auto; background: #fff; }
 .method-figure-crop img { position: absolute; top: 0; left: 0; display: block; max-width: none; height: auto; }
 .method-figure-crop-left { width: min(80%, 768px); aspect-ratio: 4930 / 3219; }
@@ -221,16 +215,16 @@ h3 { margin: 32px 0 10px; font-size: 1.12rem; line-height: 1.12; }
 .experiment-copy-content { max-height: none; overflow: visible; opacity: 1; }
 .experiment-copy-fold:hover .experiment-fold-hint span:last-child, .experiment-copy-fold:focus .experiment-fold-hint span:last-child, .experiment-copy-fold:focus-within .experiment-fold-hint span:last-child { color: var(--accent); }
 .experiment-caption { padding: 20px 28px; border-bottom: 1px solid var(--ink); background: #f4f7ff; }
-.experiment-caption p, .experiment-notes p { max-width: none; color: #32322e; font-family: Georgia, "Times New Roman", serif; font-size: 1.05rem; line-height: 1.72; text-align: justify; text-justify: inter-word; }
+.experiment-caption p, .experiment-notes p { max-width: none; color: #32322e; font-family: Arial, "Helvetica Neue", sans-serif; font-size: 1.05rem; line-height: 1.72; text-align: justify; text-justify: inter-word; }
 .experiment-caption strong { color: var(--signal); }
-.experiment-caption p > strong:first-child, .experiment-notes p > strong:first-child { color: var(--signal); font-family: ui-sans-serif, sans-serif; font-size: 1.08rem; }
+.experiment-caption p > strong:first-child, .experiment-notes p > strong:first-child { color: var(--signal); font-family: Arial, "Helvetica Neue", sans-serif; font-size: 1.08rem; }
 .experiment-notes-grid { display: grid; grid-template-columns: 1fr; min-height: 180px; }
 .experiment-notes { padding: 24px 28px; }
-.experiment-notes > span { display: block; margin-bottom: 28px; color: var(--signal); font-family: ui-monospace, monospace; font-size: .78rem; font-weight: 800; letter-spacing: .08em; text-transform: uppercase; }
 .experiment-notes p + p { margin-top: 20px; }
 .experiment-notes p strong { color: var(--ink); }
 #experiments .split-layout { display: block; }
-#experiments { background: #fff; }
+#experiments { background: #fff; font-family: Arial, "Helvetica Neue", sans-serif; }
+#experiments h2, #experiments h3, #experiments .section-number { font-family: Arial, "Helvetica Neue", sans-serif; }
 #experiments .section-heading { position: static; display: grid; grid-template-columns: 58px 1fr; max-width: 900px; }
 #experiments .sticky-heading .section-number { margin: 4px 0 0; }
 #experiments .experiment-list { grid-template-columns: 1fr; border: 1px solid var(--ink); }
@@ -274,7 +268,7 @@ h3 { margin: 32px 0 10px; font-size: 1.12rem; line-height: 1.12; }
 .demo-controls button:hover { color: white; background: var(--signal); }
 .demo-controls button:disabled { opacity: .28; color: var(--ink); background: transparent; cursor: not-allowed; }
 .demo-group + .demo-group { margin-top: 64px; }
-.demo-rail { display: grid; grid-auto-flow: column; grid-auto-columns: minmax(720px, 86%); gap: 22px; overflow-x: auto; padding: 0 12px 20px 0; overscroll-behavior-inline: contain; scroll-behavior: smooth; scroll-snap-type: inline mandatory; scrollbar-color: var(--accent) transparent; scrollbar-width: thin; }
+.demo-rail { display: grid; grid-auto-flow: column; grid-auto-columns: minmax(504px, 60.2%); gap: 22px; overflow-x: auto; padding: 0 12px 20px 0; overscroll-behavior-inline: contain; scroll-behavior: smooth; scroll-snap-type: inline mandatory; scrollbar-color: var(--accent) transparent; scrollbar-width: thin; }
 .demo-card { --card-accent: var(--signal); display: grid; grid-template-columns: 1fr; min-width: 0; overflow: hidden; border: 1px solid var(--ink); background: #fff; box-shadow: 10px 10px 0 var(--card-accent); scroll-snap-align: start; }
 .demo-card:nth-child(3n+2) { --card-accent: var(--accent); }
 .demo-card:nth-child(3n) { --card-accent: var(--mint); }

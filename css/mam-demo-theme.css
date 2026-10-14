@@ -1,4 +1,4 @@
-/* RoSE palette: warm paper, dark ink, blue accents, and yellow references. */
+/* RoSE palette: warm paper, dark ink, blue accents, and orange references. */
 :root {
   --rose-blue: #3155ff;
   --rose-ink: #0b0b0b;
@@ -18,8 +18,12 @@ body[data-layout="compact"] :is(.algorithm-panel, .video-frame, #viewport) { col
 body[data-layout="compact"] .algorithm-ref-type { color: var(--rose-blue); background: #eef1ff; border-color: #dbe3ff; }
 body[data-layout="compact"] #algorithm-panel .algorithm-progress { color: var(--rose-blue); }
 body[data-layout="compact"] #algorithm-panel .algorithm-axis-label { fill: var(--rose-muted); }
-body[data-layout="compact"] .reference-type-badge { background: #fff3bf; border-color: #e2c65d; color: #665318; }
-body[data-layout="compact"] .reference-type-badge small { color: #806b2a; }
+body[data-layout="compact"] .reference-type-badge { background: #fff0df; border-color: #e8a45f; color: #8b4208; }
+body[data-layout="compact"] .reference-type-badge small { color: #a55312; }
+body[data-layout="compact"] .reference-card .card-number,
+body[data-layout="compact"] .ref-badge > span { background: #f28c28; color: #2c1708; }
+body[data-layout="compact"] .reference-card[aria-pressed="false"] .card-number { background: #ffe2c2; color: #8b4208; }
+body[data-layout="compact"] :is(#video-number, #demonstration-label) { color: var(--rose-ink); }
 
 /* Camera and playback controls use a quiet outline; blue denotes selection. */
 body[data-layout="compact"] button { color: var(--rose-ink); background: #fff; border: 1px solid var(--rose-line); transition: color .15s, background-color .15s, border-color .15s; }
@@ -27,6 +31,7 @@ body[data-layout="compact"] button:hover { color: var(--rose-blue); background: 
 body[data-layout="compact"] button:focus-visible { outline: 2px solid var(--rose-blue); outline-offset: 3px; }
 body[data-layout="compact"] :is(.view-switch, .type-switch, .ref-type-switch, .task-switch, .environment-switch, .presentation-switch) { background: transparent; border-color: var(--rose-line); }
 body[data-layout="compact"] button[aria-pressed="true"] { color: var(--rose-blue); background: #eef1ff; border-color: var(--rose-blue); box-shadow: none; }
+body[data-layout="compact"] .type-switch button[aria-pressed="true"] { color: #8b4208; background: #ffdfb6; border-color: #e8a45f; }
 body[data-layout="compact"] #playback button { color: #fff; background: var(--rose-blue); border-color: var(--rose-blue); }
 
 /* Video choices stay neutral, with a narrow blue edge for the active item. */
