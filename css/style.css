@@ -280,7 +280,15 @@ h3 { margin: 32px 0 10px; font-size: 1.12rem; line-height: 1.12; }
 .demo-card:nth-child(3n) { --card-accent: var(--mint); }
 .demo-media { position: relative; min-height: 0; overflow: hidden; aspect-ratio: 16 / 9; border-right: 0; border-bottom: 1px solid var(--ink); color: white; background: var(--deep); }
 .demo-media > span { position: absolute; z-index: 2; top: 10px; left: 10px; padding: 5px 8px; color: var(--deep); background: var(--mint); font-family: ui-monospace, monospace; font-size: .72rem; font-weight: 900; }
-.demo-media video { display: block; width: 100%; height: 100%; object-fit: contain; background: #000; }
+.demo-media video { position: absolute; inset: 0; display: block; width: 100%; height: 100%; object-fit: cover; background: #000; }
+.demo-play-toggle { position: absolute; z-index: 3; inset: 0; display: grid; place-items: center; width: 100%; padding: 0; border: 0; color: var(--ink); background: transparent; cursor: pointer; }
+.demo-play-icon { display: grid; place-items: center; width: 54px; height: 54px; border: 1px solid var(--ink); border-radius: 50%; background: rgba(248,247,240,.94); box-shadow: 3px 3px 0 var(--signal); transition: transform .2s ease, background-color .2s ease; }
+.demo-play-icon::before { content: ""; width: 0; height: 0; margin-left: 4px; border-top: 9px solid transparent; border-bottom: 9px solid transparent; border-left: 14px solid currentColor; }
+.demo-play-toggle:hover .demo-play-icon { transform: scale(1.08); background: #fff; }
+.demo-play-toggle:focus-visible { outline: 3px solid var(--signal); outline-offset: -5px; }
+.demo-play-toggle.is-playing { opacity: 0; }
+.demo-play-toggle.is-playing:hover, .demo-play-toggle.is-playing:focus-visible { opacity: 1; }
+.demo-play-toggle.is-playing .demo-play-icon::before { width: 12px; height: 17px; margin-left: 0; border: 0; border-left: 4px solid currentColor; border-right: 4px solid currentColor; }
 .demo-copy { display: flex; flex-direction: column; min-width: 0; min-height: 170px; padding: 28px 24px 24px; background-image: linear-gradient(rgba(11,11,11,.045) 1px, transparent 1px), linear-gradient(90deg, rgba(11,11,11,.045) 1px, transparent 1px); background-size: 28px 28px; }
 .demo-copy h3 { display: flex; align-items: center; gap: 14px; margin: 0; font-size: clamp(1.7rem, 3vw, 2.65rem); line-height: .96; letter-spacing: -.06em; text-transform: uppercase; }
 .demo-title-icon { display: inline-grid; flex: 0 0 auto; width: 1.15em; height: 1.15em; place-items: center; border: 1px solid var(--ink); border-radius: 50%; color: var(--ink); background: #ffd400; font-family: ui-monospace, monospace; font-size: .72em; font-weight: 900; letter-spacing: 0; line-height: 1; box-shadow: 3px 3px 0 var(--ink); }

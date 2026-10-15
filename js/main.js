@@ -126,12 +126,40 @@ document.querySelectorAll('[data-demo-group]').forEach((group) => {
   updateControls();
 });
 
-document.querySelectorAll('.demo-media video').forEach((video) => {
+const demoVideos = [...document.querySelectorAll('.demo-media video')];
+demoVideos.forEach((video) => {
+  const media = video.closest('.demo-media');
+  const title = video.closest('.demo-card')?.querySelector('h3')?.textContent.trim() || 'demo';
+  const toggle = document.createElement('button');
+  toggle.type = 'button';
+  toggle.className = 'demo-play-toggle';
+  toggle.innerHTML = '<span class="demo-play-icon" aria-hidden="true"></span>';
+  media.append(toggle);
+  video.controls = false;
+
+  const updateToggle = () => {
+    const playing = !video.paused && !video.ended;
+    toggle.classList.toggle('is-playing', playing);
+    toggle.setAttribute('aria-label', `${playing ? 'Pause' : 'Play'} ${title} video`);
+  };
+
+  toggle.addEventListener('click', () => {
+    if (video.paused || video.ended) {
+      if (video.ended) video.currentTime = 0;
+      video.play().catch(updateToggle);
+    } else {
+      video.pause();
+    }
+  });
   video.addEventListener('play', () => {
-    document.querySelectorAll('.demo-media video').forEach((otherVideo) => {
+    demoVideos.forEach((otherVideo) => {
       if (otherVideo !== video) otherVideo.pause();
     });
+    updateToggle();
   });
+  video.addEventListener('pause', updateToggle);
+  video.addEventListener('ended', updateToggle);
+  updateToggle();
 });
 
 const year = document.querySelector('[data-current-year]');
