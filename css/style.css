@@ -274,7 +274,7 @@ h3 { margin: 32px 0 10px; font-size: 1.12rem; line-height: 1.12; }
 .demo-controls button:hover { color: white; background: var(--signal); }
 .demo-controls button:disabled { opacity: .28; color: var(--ink); background: transparent; cursor: not-allowed; }
 .demo-group + .demo-group { margin-top: 64px; }
-.demo-rail { display: grid; grid-auto-flow: column; grid-auto-columns: minmax(504px, 60.2%); grid-auto-rows: auto; gap: 22px; overflow-x: auto; padding: 0 12px 20px 0; overscroll-behavior-inline: contain; scroll-behavior: smooth; scroll-snap-type: inline mandatory; scrollbar-color: var(--accent) transparent; scrollbar-width: thin; }
+.demo-rail { display: grid; grid-auto-flow: column; grid-auto-columns: 504px; grid-auto-rows: auto; gap: 22px; overflow-x: auto; padding: 0 12px 20px 0; overscroll-behavior-inline: contain; scroll-behavior: smooth; scroll-snap-type: inline mandatory; scrollbar-color: var(--accent) transparent; scrollbar-width: thin; }
 .demo-card { --card-accent: var(--signal); display: grid; grid-template-columns: 1fr; min-width: 0; overflow: hidden; border: 1px solid var(--ink); background: #fff; box-shadow: 10px 10px 0 var(--card-accent); scroll-snap-align: start; }
 .demo-card:nth-child(3n+2) { --card-accent: var(--accent); }
 .demo-card:nth-child(3n) { --card-accent: var(--mint); }
